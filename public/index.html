@@ -13,13 +13,16 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
+  
 
   <body>
     <!-- Top nav bar (fixed) -->
@@ -28,7 +31,7 @@
       <a href="#"><strong>Write</strong> a new tweet</a>
     </nav>
 
-    <header>
+    <header id="page-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -47,13 +50,34 @@
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div>
-            <footer>
+            
               <button type="submit">Tweet</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
-            </footer>
+            
           </div>
         </form>
       </section>
+
+      <!-- tweets go in here -->
+      <section id="tweet-container">
+        <article class="tweet">
+          <header>
+            <div>
+              <img src="/images/profile-hex.png"> 
+              <p>Maham</p>
+            </div>
+            <a class="handle">@MahamF</a>
+          </header>
+          <main>
+            <p>The weather is beautiful!</p>
+          </main>
+          <footer>
+            <p>5 Days Ago</p>
+            <p>:):):)</p>
+          </footer>
+        </article>
+      </section>
+
     </main>
   </body>
 </html>
