@@ -13,10 +13,12 @@ nav {
 nav span {
   font-family: 'Bungee', sans-serif;
  }
-nav a {
+nav button {
   font-variant-caps: initial;
   text-decoration: none;
   color: white;
+  background: transparent;
+  border: none;
 } 
 
 @media only screen and (min-width: 1024px) {

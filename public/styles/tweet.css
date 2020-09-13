@@ -16,7 +16,6 @@ article.tweet header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .handle {
@@ -41,6 +40,7 @@ article.tweet header img {
 
 article.tweet main {
   border-bottom: 2px solid #545149;
+  text-align: left;
 }
 
 article.tweet footer {
