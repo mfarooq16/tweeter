@@ -4,17 +4,15 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-$(document).ready( () => {
+$(document).ready(() => {
 
-  console.log("everything is ready!");
-
-  const createTweetElement = function (tweetObj) {
-    const $tweet = `
+  const createTweetElement = function(tweetObj) {
+    const $tweet = $(`
       <article class="tweet">
-      
+
         <header>
           <div>
-            <img src="${tweetObj.user.avatars}"> 
+            <img src="${tweetObj.user.avatars}" alt="profile picture"> 
             <p>${tweetObj.user.name}</p>
           </div>
           <a class="handle">${tweetObj.user.handle}</a>
@@ -26,21 +24,68 @@ $(document).ready( () => {
 
         <footer>
           <p>${tweetObj.created_at}</p>
-          <p>little logos</p>
+          <p><3<3<3</p>
         </footer>
 
-      </article>`
+      </article>`);
 
     return $tweet;
   };
+
   const renderTweets = function(tweets) {
+    $('#tweet-container').empty();    //empty tweet container before starting the loop
+
     for (let tweet of tweets) {  // loops through tweets
-      let $tweet = createTweetElement(tweet);  // calls createTweetElement for each tweet
-      $('#tweets-container').append($tweet);  // takes return value and appends it to the tweets container
+      //let $tweet = createTweetElement(tweet);  // calls createTweetElement for each tweet
+      $('#tweet-container').prepend(createTweetElement(tweet));  // takes return value and appends it to the tweets container
     }
   };
 
-  // Test / driver code (temporary). 
+
+  $('.tweet-form').on("submit", ((event) => {
+    event.preventDefault();
+
+    if ($('#tweet-text').val().length === 0) {
+      alert('you cannot submit empty tweet!');
+
+    } else if ($('#tweet-text').val().length > 140) {
+      alert('Your tweet is too long! make it shorter!');
+
+    } else {
+
+      const serialized = $('.tweet-form').serialize();
+      //console.log(serialized);
+
+      $.ajax({
+        type: 'POST',
+        url: '/tweets/',
+        data: serialized,
+        complete: function() {
+          //console.log('request is complete');
+          loadTweets();
+        }
+      });
+      //Reset counter
+      $('.counter').val(140);
+      //Reset input field
+      $('#tweet-text').val("");
+            
+    }
+  
+  }));
+  
+  const loadTweets = function() {
+    $.ajax('/tweets/', { method: 'GET' })
+      .then(function(response) {
+        renderTweets(response);
+      });
+  };
+  
+  loadTweets();
+
+
+
+  // Test driver code (temporary).
   const data = [
     {
       "user": {
@@ -64,7 +109,9 @@ $(document).ready( () => {
       },
       "created_at": 1461113959088
     }
-  ]
-
+  ];
+    
   renderTweets(data);
-})
+
+
+});
