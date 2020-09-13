@@ -6,8 +6,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Screenshot of Desktop Version"](#)
-!["screenshot of Tablet Version"](#)
+!["Screenshot of Desktop Version"](https://github.com/mfarooq16/tweeter/blob/master/docs/Tweeter-Desktop-Page.jpg)
+!["screenshot of Tablet Version"](https://github.com/mfarooq16/tweeter/blob/master/docs/Tweeter-Tablet-Page-1.jpg)
 
 ## Getting Started
 
