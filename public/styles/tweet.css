@@ -1,5 +1,5 @@
 article.tweet {
-  width: 1000px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-top: 5em;
@@ -33,6 +33,7 @@ article.tweet header > div {
   align-items: center;
 
 }
+
 article.tweet header img {
   height: 55px;
   width: 55px;

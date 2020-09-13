@@ -9,6 +9,19 @@
   color: white;
 
 }
+
 #page-header img {
   background-color:transparent;
+}
+
+@media only screen and (min-width: 1024px) {
+  /* Write CSS rules that target Tablets screen sizes upwards - including desktops */
+  #page-header {
+    justify-self: left;
+    width: 30%;
+    margin-top: 2em;
+    margin-left: 2em;
+    text-align: center;
+  }
+
 }
