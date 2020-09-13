@@ -54,11 +54,12 @@ $(document).ready(() => {
     event.preventDefault();
 
     if ($('#tweet-text').val().length === 0) {
-      alert('you cannot submit empty tweet!');
+      const error = 'Your tweet is empty. Please write some text.';
+      $('#error-message').text(error).slideDown(500).hide();
 
     } else if ($('#tweet-text').val().length > 140) {
-      alert('Your tweet is too long! make it shorter!');
-
+      const error = 'You have reached your maximum limit of characters allowed!';
+      $('#error-message').text(error).slideDown(500).hide();
     } else {
 
       const serialized = $('.tweet-form').serialize();
