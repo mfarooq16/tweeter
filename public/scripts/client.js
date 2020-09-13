@@ -5,6 +5,14 @@
 */
 
 $(document).ready(() => {
+  //use an escape function to prevent XSS
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+
 
   const createTweetElement = function(tweetObj) {
     const $tweet = $(`
@@ -19,7 +27,7 @@ $(document).ready(() => {
         </header>
 
         <main>
-          <p>${tweetObj.content.text}</p>
+          <p>${escape(tweetObj.content.text)}</p>
         </main>
 
         <footer>
