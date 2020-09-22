@@ -55,11 +55,11 @@ $(document).ready(() => {
 
     if ($('#tweet-text').val().length === 0) {
       const error = 'Your tweet is empty. Please write some text.';
-      $('#error-message').text(error).slideDown(500).hide();
+      $('#error-message').text(error).slideDown();
 
     } else if ($('#tweet-text').val().length > 140) {
       const error = 'You have reached your maximum limit of characters allowed!';
-      $('#error-message').text(error).slideDown(500).hide();
+      $('#error-message').text(error).slideDown();
     } else {
 
       const serialized = $('.tweet-form').serialize();
@@ -78,7 +78,8 @@ $(document).ready(() => {
       $('.counter').val(140);
       //Reset input field
       $('#tweet-text').val("");
-            
+      //Hide error message
+      $('#error-message').text('');  
     }
   
   }));
