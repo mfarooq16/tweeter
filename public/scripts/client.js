@@ -15,6 +15,7 @@ $(document).ready(() => {
 
 
   const createTweetElement = function(tweetObj) {
+    const time = moment.utc(tweetObj.created_at).fromNow();
     const $tweet = $(`
       <article class="tweet">
 
@@ -31,7 +32,7 @@ $(document).ready(() => {
         </main>
 
         <footer>
-          <p>${tweetObj.created_at}</p>
+          <p>${escape(time)}</p>
           <p><3<3<3</p>
         </footer>
 
